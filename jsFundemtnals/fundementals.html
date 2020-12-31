@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Function scope example</title>
+</head>
+<body>
+
+  <script>
+   
+   function add7(number){
+          let addition = number + 7;
+          return addition
+   }
+
+   console.log(add7(22));
+
+   function multiply(multi_one,multi_two){
+     let multi = multi_one * multi_two;
+     return multi;
+   }
+
+      console.log(multiply(22,22));
+
+  function capitalize(string){
+    let cap = string.charAt(0).toUpperCase() + string.slice(1);
+    return cap;
+  }
+
+  console.log(capitalize("curtis"));
+
+  function lastLetter(string){
+    let len = string.length;
+    
+      let last = string.charAt(len-1);
+      return last;
+  }
+  
+
+  console.log(lastLetter("curtis"));
+  </script>
+</body>
+</html>S
