@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+
+    <script>
+    let userscore = 0; // global variable with userScore
+    let compscore = 0; // global variable with compScore
+            
+        // Function that randomly returns option for the game - pc side
+        function computerPlay(){
+            let computerOptions = ["rock", "paper", "scissors"]; // options available to the computer
+            let randomOutput = computerOptions[Math.floor(Math.random()*computerOptions.length)]; //selects a random number out of the length of computerOptions
+            return randomOutput; // returns one of options in computer Options
+        }
+
+        // function to play 1 round of rock paper scissors
+        function roundOfRPS(playerSelection){ // takes paramter of user selection 
+            const computerSelection = computerPlay(); // call computer play function and store in a const
+          
+            //if statments outlining all possile outcomes based off rock being the input
+        
+                    if(playerSelection == "rock" && computerSelection == "paper"){
+                        return " loss"
+                    } else if (playerSelection == "rock" && computerSelection == "scissors"){
+                        return " win"
+                    } else if (playerSelection == "rock" && computerSelection == "rock"){
+                        return " Draw!"
+                    } else if(playerSelection == "paper" && computerSelection == "scissors"){
+                        return " loss"
+                    } else if (playerSelection == "paper" && computerSelection == "rock"){
+                        return " win"
+                    } else if (playerSelection == "paper" && computerSelection == "paper"){
+                        return " Draw!"
+                    } else if(playerSelection == "scissors" && computerSelection == "scissors"){
+                        return " Draw!"
+                    } else if (playerSelection == "scissors" && computerSelection == "rock"){
+                        return " loss"
+                    } else if (playerSelection == "scissors" && computerSelection == "paper"){
+                        return " win"
+                    }
+                
+
+              
+
+                   
+                
+            
+        }
+
+        // function to run 5 rounds of rock paper scissors tracking results and producing a winner
+        function game(){
+         
+            // for loop for each round
+            for(let i = 1; i <=5; i++){
+                const playerSelection = prompt("Enter either rock, paper or scissors").toLowerCase();
+                let game = roundOfRPS(playerSelection); // one game is a round of rps 
+           
+                //if statment to calculate scores
+            if(game == " Draw!"){
+                console.log("round: " + i  + game);
+               
+            } else if (game == " loss"){
+               compscore++;
+               console.log("round: " + i  + game);
+
+            } else if (game == " win"){
+                userscore++;
+                console.log("round: " + i  + game);
+            }
+            
+            //output game scores
+            console.log("user score: " + userscore + " comp score: " + compscore);
+
+            // when the game reaches it final round calculate who won
+        if(i == 5){
+            if(userscore > compscore){
+                console.log("YOU WON THE GAME");
+            
+            } else {
+            console.log("YOU LOST THE GAME");
+            
+        }
+
+            
+
+        }
+       
+
+           
+
+            
+        }
+    }
+
+        
+        console.log(game());
+   
+
+
+    </script>
+    
+</body>
+</html>
