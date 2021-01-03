@@ -24,15 +24,15 @@ blueHeading.style.color = "blue"; // style for the heading to turn text blue
 
 //DIV BLACK BORDER AND PINK BACKGROUND
 const divBorderBackground = document.createElement('div'); // create an element "div"
-const h1 = document.createElement('h1');
-h1.textContent = "I'm in a div";
-const p = document.createElement('p');
-p.textContent = "ME TOO";
-divBorderBackground.appendChild(h1);
-divBorderBackground.appendChild(p);
-container.appendChild(divBorderBackground);
+const h1 = document.createElement('h1'); // create H1 element
+h1.textContent = "I'm in a div"; // put text in H1
+const p = document.createElement('p'); // create P element
+p.textContent = "ME TOO"; // put text in page
+divBorderBackground.appendChild(h1); // append h1 to div
+divBorderBackground.appendChild(p); // append p tag to div
+container.appendChild(divBorderBackground); // append div to container
 
 
-divBorderBackground.style.backgroundColor = "pink";
-divBorderBackground.style.borderColor = "black";
+divBorderBackground.style.backgroundColor = "pink"; // make background pink
+divBorderBackground.style.border = "thick solid black"; 
 
