@@ -1,6 +1,15 @@
 # the_odin_project
 
-# Javascript CSS Dom manipulation - 2/2/2021 - completed
+# Javascript Rock Paper Scissors V2 - UI edition - 6/1/2021
+
+New edition of rock paper scissors featuring a UI
+
+New features in this edition
+- DOM manipluation to display game results 
+- Basic UI to move the game from console based 
+
+
+# Javascript CSS Dom manipulation - 2/1/2021 - completed
 
 # Javascript Rock Paper Scissors - 1/1/2021 - completed
 
