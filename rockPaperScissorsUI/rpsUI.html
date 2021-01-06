@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+    <title>Rock Paper Scissors UI</title>
+</head>
+<body>
+    <div class="flex">
+<div id="header">
+    <h1 id="head">ROCK PAPER SCISSORS</h1>
+    
+</div>
+
+<div id="content">
+  
+    <button id="rock-button">Rock</button>
+    <button id="paper-button">Paper</button>
+    <button id="scissors-button">Scissors</button>
+    <button id="Reset-button">reset</button>
+    <div id="results">
+    </div>
+        
+
+    <div class="scores">
+        <p id="roundCount">round: 0</p>
+        <p id="uCount">UserScore:</p>
+        <p id="cCount">compScore:</p>
+        <p id="dCount">Draws:</p>
+        <p id="gameResult">Result: ...</p>
+    </div>
+        
+
+    </div>
+</div>
+
+   
+    <script>
+        let userscore = 0; //user score tracked in the game
+        let compscore = 0; //computer score tracked in the game 
+        let drawscore = 0;
+        let round = 1; // round score tracked during the game 
+
+        //Query selectors for each button
+        const rockButton = document.querySelector("#rock-button"); //declare const linked to rock button
+        const paperButton = document.querySelector("#paper-button"); //declare const linked to paper button
+        const scissorsButton = document.querySelector("#scissors-button"); //declare const linked to scissors button
+        const resetButton = document.querySelector("#Reset-button"); //declare const linked to reset button
+
+        //Event listeners for each button
+        rockButton.addEventListener("click", playRound); //declare eventlistener to rock button
+        paperButton.addEventListener("click", playRound); //declare eventlistener to paper button
+        scissorsButton.addEventListener("click", playRound); //declare eventlistener to scissors button
+        resetButton.addEventListener("click", reset); //declare eventlistener to reset button
+        
+        //reset function
+        function reset(){
+            location.reload(); //reload page - wipe score data and round data to original values
+        }
+
+       // Function that randomly returns option for the game - pc side
+       function computerPlay(){
+            let computerOptions = ["rock", "paper", "scissors"]; // options available to the computer
+            let randomOutput = computerOptions[Math.floor(Math.random()*computerOptions.length)]; //selects a random number out of the length of computerOptions
+            return randomOutput; // returns one of options in computer Options
+        }
+
+        //Run one round of the game
+        function playRound(e){ //takes param of event (button click)
+           
+            //Player Selections
+            const playerSelection = (e.target.id); //userSelection is the result of the event(clickign the button) the id from this event will be used in the game
+            const computerSelection = computerPlay(); // store result of function in const 
+            
+            //DOM manipulation
+            //query selectors idenitfying id's
+           
+            const rounds = document.querySelector('#roundCount') //display round count
+            const user = document.querySelector('#uCount') //display user score
+            const comp = document.querySelector('#cCount') //display computer score 
+            const draw = document.querySelector('#dCount') //display computer score 
+            
+          
+                
+            //if statments that determine outcome of game 
+            if(playerSelection == "rock-button" && computerSelection == "paper"){
+                
+                compscore++;
+                } else if (playerSelection == "rock-button" && computerSelection == "scissors"){
+               
+                userscore++;
+                
+                } else if (playerSelection == "rock-button" && computerSelection == "rock"){
+                    drawscore++;
+                } else if(playerSelection == "paper-button" && computerSelection == "scissors"){
+               
+                compscore++;
+                
+                } else if (playerSelection == "paper-button" && computerSelection == "rock"){
+              
+                userscore++;
+               
+                } else if (playerSelection == "paper-button" && computerSelection == "paper"){
+                    drawscore++;
+                } else if(playerSelection == "scissors-button" && computerSelection == "scissors"){
+                    drawscore++;
+                } else if (playerSelection == "scissors-button" && computerSelection == "rock"){
+               
+                compscore++;
+              
+                } else if (playerSelection == "scissors-button" && computerSelection == "paper"){
+             
+                userscore++;
+               
+            }
+
+            rounds.textContent = "round: " + round; // display rounds
+            user.textContent = "UserScore: " + userscore; //display user score
+            comp.textContent = "compScore: " + compscore; //display computer score 
+            draw.textContent = "Draws: " + drawscore; //display computer score 
+            round++;
+                    
+                checkWinner();
+        }
+
+
+        function checkWinner(){
+
+            const gameResult = document.querySelector('#gameResult') //display computer score 
+          
+            if(userscore  == 5){
+                rockButton.removeEventListener("click", playRound);
+                paperButton.removeEventListener("click", playRound);
+                scissorsButton.removeEventListener("click", playRound);
+                gameResult.textContent = "Result: YOU WIN!"
+            }else if (compscore == 5 ){
+                
+                rockButton.removeEventListener("click", playRound);
+                paperButton.removeEventListener("click", playRound);
+                scissorsButton.removeEventListener("click", playRound);
+                gameResult.textContent = "Result: YOU LOSE!"
+
+            }
+        }
+        
+
+        
+   
+
+    </script>
+    
+</body>
+</html>
