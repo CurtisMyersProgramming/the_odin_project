@@ -1,4 +1,9 @@
 # the_odin_project
+# Javascript Etch a sketch - 16/1/2021
+
+JS version of etch a sketch when user mouseover the grid sets a random colour as div background.
+
+Allows user to set the size of grid via prompt
 
 # Javascript Rock Paper Scissors V2 - UI edition - 6/1/2021
 
